@@ -219,6 +219,7 @@ import HomeScreen from './screens/HomeScreen';
 import UserScreen from './screens/UserScreen';
 import SettingScreen from './screens/SettingsScreen';
 import Subscribe from './screens/Subscribe';
+import New from './screens/New';
 
 const TabNavigator = createMaterialBottomTabNavigator(
   {
@@ -268,6 +269,19 @@ const TabNavigator = createMaterialBottomTabNavigator(
         tabBarIcon: tabInfo => (
           <MaterialCommunityIcons
             name="bell-ring-outline"
+            size={tabInfo.focused ? 26 : 20}
+            color={tabInfo.tintColor}
+          />
+        ),
+      },
+    },
+    New: {
+      screen: New,
+      navigationOptions: {
+        tabBarLabel: 'New',
+        tabBarIcon: tabInfo => (
+          <MaterialCommunityIcons
+            name="folder-refresh"
             size={tabInfo.focused ? 26 : 20}
             color={tabInfo.tintColor}
           />

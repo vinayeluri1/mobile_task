@@ -15,12 +15,26 @@
 
 // export default User;
 /* eslint-disable react-native/no-inline-styles */
-import React from 'react';
-import {Text, View, ImageBackground, Image} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {Text, View, ImageBackground, FlatList} from 'react-native';
+// import {Local} from './data.json';
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 const User = () => {
+  const Data = require('./data.json');
+  console.log('data', Data);
+  //   return calculatedata;
+  // });
+  // const [data, setData]= useState(Local)
+  //   useEffect(() => {
+  //     console.log('enter', data);
+  //     fetch(Local).then(response => {
+  //       setData(response)
+  //       console.log('data', response
+  //       )})
+  //       .catch(err=>console.log(err))
+  //   });
   return (
     <View style={{flex: 1}}>
       <View
@@ -44,7 +58,7 @@ const User = () => {
         </View>
         <View style={{width: '52%'}}>
           <Text style={{fontSize: 23, color: '#000', fontWeight: '600'}}>
-            GGTFIT
+            Local Json
           </Text>
         </View>
         <View>
@@ -58,7 +72,23 @@ const User = () => {
         </View>
       </View>
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-        <Text style={{color: '#006600', fontSize: 40}}>calender Screen!</Text>
+        <FlatList
+          data={Data}
+          keyExtractor={({id}, index) => id}
+          renderItem={({item}) => (
+            <View
+              style={{
+                padding: 10,
+                margin: 5,
+                borderColor: 'red',
+                borderWidth: 0.5,
+                borderRadius: 15,
+              }}>
+              <Text>{item.id + '. ' + item.title}</Text>
+              <Text>{item.body}</Text>
+            </View>
+          )}
+        />
         {/* <Ionicons name="md-person-circle-outline" size={80} color="#006600" /> */}
       </View>
     </View>

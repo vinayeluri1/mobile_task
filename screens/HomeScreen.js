@@ -33,7 +33,7 @@ const Home = () => {
         </View>
         <View style={{width: '52%'}}>
           <Text style={{fontSize: 23, color: '#000', fontWeight: '600'}}>
-            GGTFIT
+            Home
           </Text>
         </View>
         <View>
